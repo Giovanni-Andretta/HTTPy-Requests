@@ -1,0 +1,8 @@
+{
+    "url": "",
+    "method": "GET",
+    "body": "",
+    "params": "",
+    "authorization": "",
+    "headers": ""
+}
