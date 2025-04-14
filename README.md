@@ -83,8 +83,8 @@ Once the dependencies are installed and Tkinter is set up, you can run the appli
 
 ### 6. Keyboard Shortcuts
 
-- Ctrl + S / Cmd + S – Save the current request
-- Ctrl + Z / Cmd + Z – Undo changes
+- Ctrl + s / Command + s – Save the current request
+- Ctrl + z / Command + z – Undo changes
 - Ctrl + Shift + Z / Cmd + Shift + Z – Redo changes
 
 ### 7. Creating a Visual Shortcut on macOS using Automator (Optional)
