@@ -12,7 +12,7 @@
 
 ## 💡 About the Project
 
-Application to send and manage HTTP requests (GET, POST, PUT, DELETE) using Python, Tkinter and cURL. It allows you to easily create, save, and load HTTP requests, view responses, and manage request history.
+Application to send and manage HTTP requests (GET, POST, PUT, DELETE) using Python, Tkinter, and cURL (executed via subprocess). It allows you to easily create, save, and load HTTP requests, view responses, and manage request history.
 
 ## Functionalities
 
@@ -26,6 +26,30 @@ Application to send and manage HTTP requests (GET, POST, PUT, DELETE) using Pyth
 - **Undo/Redo History:** You can undo or redo any changes made to the request fields (such as URL, headers, body).
 - **Animation on Send Button:** When you click the **Send** button, a small **dot blinks twice** and changes color to match the HTTP status code of the response (e.g., green for success, red for errors).
 - **Body Field Indentation:** The body field is designed to make indentation easier, providing a better user experience when working with JSON or other structured data.
+
+### 🔍 **How It Works**
+
+The application constructs and executes `curl` commands based on the user input, including URL, HTTP method (GET, POST, PUT, DELETE, etc.), headers, body, and query parameters. The constructed command is executed via Python's `subprocess` module, and the response is displayed in the app.
+
+**Example of the generated cURL command:**
+
+If the user fills out the following fields:
+
+- **URL**: `http://0.0.0.0:3000/dev/tests`
+- **Method**: `GET`
+- **Body**: (empty)
+- **Params**: "organization_code=test"
+- **Authorization**: "Bearer 123"
+- **Headers**: "application/json""
+
+The app generates the following cURL command:
+
+```bash
+curl -s -X GET "http://0.0.0.0:3000/dev/tests?organization_code=test" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer 123" \
+-w %{http_code}
+```
 
 ### Keyboard Shortcuts
 
@@ -71,7 +95,13 @@ macOS:
 Windows:
   Tkinter is included with Python by default on Windows, so there is no need to install it separately.
 
-### 4. Run the Application
+### 4. Ensure cURL is installed
+
+macOS/Linux: cURL is usually pre-installed.
+
+Windows: If you get an error that cURL is not recognized, download and install cURL or ensure it’s added to your system PATH.
+
+### 5. Run the Application
 
 Once the dependencies are installed and Tkinter is set up, you can run the application with:
 
@@ -79,7 +109,7 @@ Once the dependencies are installed and Tkinter is set up, you can run the appli
   python3 main.py
 ```
 
-### 5. Creating a Visual Shortcut on macOS using Automator (Optional)
+### 6. Creating a Visual Shortcut on macOS using Automator (Optional)
 
 If you want to create a visual shortcut to run the application on your Mac, you can do so using **Automator**:
 
