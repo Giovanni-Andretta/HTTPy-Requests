@@ -12,7 +12,7 @@
 
 ## 💡 About the Project
 
-Application to send and manage HTTP requests (GET, POST, PUT, DELETE) using Python and Tkinter. It allows you to easily create, save, and load HTTP requests, view responses, and manage request history.
+Application to send and manage HTTP requests (GET, POST, PUT, DELETE) using Python, Tkinter and cURL. It allows you to easily create, save, and load HTTP requests, view responses, and manage request history.
 
 ## Functionalities
 
@@ -26,6 +26,12 @@ Application to send and manage HTTP requests (GET, POST, PUT, DELETE) using Pyth
 - **Undo/Redo History:** You can undo or redo any changes made to the request fields (such as URL, headers, body).
 - **Animation on Send Button:** When you click the **Send** button, a small **dot blinks twice** and changes color to match the HTTP status code of the response (e.g., green for success, red for errors).
 - **Body Field Indentation:** The body field is designed to make indentation easier, providing a better user experience when working with JSON or other structured data.
+
+### Keyboard Shortcuts
+
+- Ctrl + s / Command + s – Save the current request
+- Ctrl + z / Command + z – Undo changes
+- Ctrl + Shift + Z / Cmd + Shift + Z – Redo changes
 
 ****************************************************
 
@@ -53,15 +59,7 @@ Windows:
 
 Once activated, your terminal prompt will change to show the name of the virtual environment (venv).
 
-### 3. Install Dependencies
-
-After activating the virtual environment, you need to install the required dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-### 4. Install Tkinter
+### 3. Install Tkinter
 
 macOS:
   To install Tkinter on macOS, you can use Homebrew:
@@ -73,7 +71,7 @@ macOS:
 Windows:
   Tkinter is included with Python by default on Windows, so there is no need to install it separately.
 
-### 5. Run the Application
+### 4. Run the Application
 
 Once the dependencies are installed and Tkinter is set up, you can run the application with:
 
@@ -81,13 +79,7 @@ Once the dependencies are installed and Tkinter is set up, you can run the appli
   python3 main.py
 ```
 
-### 6. Keyboard Shortcuts
-
-- Ctrl + s / Command + s – Save the current request
-- Ctrl + z / Command + z – Undo changes
-- Ctrl + Shift + Z / Cmd + Shift + Z – Redo changes
-
-### 7. Creating a Visual Shortcut on macOS using Automator (Optional)
+### 5. Creating a Visual Shortcut on macOS using Automator (Optional)
 
 If you want to create a visual shortcut to run the application on your Mac, you can do so using **Automator**:
 
