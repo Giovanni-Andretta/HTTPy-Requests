@@ -69,7 +69,17 @@ def build_layout(app):
     frame_buttons.grid(row=0, column=0, padx=10, pady=10, sticky="nw")
 
     frame_content = tk.Frame(app)
-    frame_content.grid(row=0, column=1, padx=10, pady=10)
+    frame_content.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
+
+    frame_content.grid_columnconfigure(0, weight=1)
+    frame_content.grid_columnconfigure(1, weight=3)
+
+    for row in range(10):
+        weight = 0 if row not in [3, 9] else 1
+        frame_content.grid_rowconfigure(row, weight=weight)
+
+    for row in range(8):
+        frame_buttons.grid_rowconfigure(row, weight=0)
 
     request_name_combobox = ttk.Combobox(frame_buttons, width=25, font=("Source Code Pro", 10))
 
@@ -97,12 +107,7 @@ def build_layout(app):
             )
             previous_request.update({"name": None})
 
-        tk.Button(
-            frame_buttons, text="Remove Request",
-            command=remove_and_clear,
-            width=20, font=("Source Code Pro", 10)
-        ).grid(row=len(button_data), column=0, padx=10, pady=5, sticky='w')
-
+        tk.Button(frame_buttons, text="Remove Request",command=remove_and_clear,width=20, font=("Source Code Pro", 10)).grid(row=len(button_data), column=0, padx=10, pady=5, sticky='w')
         return len(button_data) + 1
 
     buttons_end_row = create_buttons()
@@ -160,7 +165,7 @@ def build_layout(app):
     status_code_label = tk.Label(status_frame, text="", width=6, bg="black", fg="white", anchor='center', relief='flat', font=("Source Code Pro", 10, "bold"))
     status_code_label.pack(side="left")
 
-    response_text = scrolledtext.ScrolledText(response_container, width=74, height=21, font=("Source Code Pro", 10))
+    response_text = scrolledtext.ScrolledText(response_container, width=74, height=21, font=("Source Code Pro", 10), state=tk.DISABLED)
     response_text.pack(fill="both", expand=True)
     enable_undo(response_text)
     bind_text_navigation(response_text)
@@ -193,11 +198,16 @@ def build_layout(app):
         status_canvas.itemconfig(status_circle_id, fill="white")
         status_code_label.config(text="", fg="white")
 
+        response_text.config(state=tk.NORMAL)
+        response_text.delete(1.0, tk.END)
+
         status_code = send_request(
             url_entry, method_var, body_text, headers_text,
             authorization_entry, params_text,
             response_text, status_code_label
         )
+
+        response_text.config(state=tk.DISABLED)
 
         if status_code is not None:
             color = "green" if 200 <= status_code <= 299 else "red" if 400 <= status_code <= 599 else "orange"
@@ -214,9 +224,6 @@ def build_layout(app):
 
     app.bind_all("<Command-s>", handle_save_event)
     app.bind_all("<Control-s>", handle_save_event)
-
-    frame_content.grid_columnconfigure(0, weight=1)
-    frame_content.grid_columnconfigure(1, weight=3)
 
     list_requests(request_name_combobox)
     load_last_request(request_name_combobox, url_entry, method_var, body_text, headers_text, authorization_entry, params_text)
