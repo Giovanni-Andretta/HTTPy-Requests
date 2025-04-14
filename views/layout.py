@@ -3,7 +3,6 @@ from tkinter import ttk, scrolledtext
 from handlers.request_actions import *
 from handlers.send_request import send_request
 
-
 def enable_undo(widget):
     history = [widget.get("1.0", tk.END).strip() if isinstance(widget, scrolledtext.ScrolledText) else widget.get()]
     history_index = [0]
@@ -43,7 +42,6 @@ def enable_undo(widget):
     widget.bind("<Command-Shift-Z>", redo)
     widget.bind("<Control-Shift-Z>", redo)
 
-
 def bind_text_navigation(widget):
     widget.bind("<Tab>", lambda event: (event.widget.insert("insert", "    "), "break")[1])
     widget.bind("<Return>", lambda event: (event.widget.insert("insert", "\n" + get_indent(event)), "break")[1])
@@ -53,14 +51,12 @@ def get_indent(event):
     current_line = event.widget.get("insert linestart", "insert")
     return ''.join(char for char in current_line if char == ' ')
 
-
 def add_labeled_widget(parent, row, label_text, label_color, widget):
     tk.Label(parent, text=label_text, fg=label_color, font=("Source Code Pro", 10)).grid(row=row, column=0, padx=10, pady=5, sticky='w')
     widget.grid(row=row, column=1, padx=10, pady=5, sticky='w')
     enable_undo(widget)
     if isinstance(widget, scrolledtext.ScrolledText):
         bind_text_navigation(widget)
-
 
 def build_layout(app):
     previous_request = {"name": None}
