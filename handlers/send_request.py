@@ -40,10 +40,10 @@ def send_request(url_entry, method_var, body_text, headers_text, authorization_e
             response = requests.post(url, headers=headers, data=body, params=params, verify=False)
         elif method == "PUT":
             response = requests.put(url, headers=headers, data=body, params=params, verify=False)
-        elif method == "DELETE":
-            response = requests.delete(url, headers=headers, params=params, verify=False)
         elif method == "PATCH":
             response = requests.patch(url, headers=headers, data=body, params=params, verify=False)
+        elif method == "DELETE":
+            response = requests.delete(url, headers=headers, params=params, verify=False)
 
         status_code = response.status_code
         status_code_label.config(text=str(status_code))
