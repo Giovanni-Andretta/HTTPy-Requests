@@ -16,13 +16,16 @@ Application to send and manage HTTP requests (GET, POST, PUT, DELETE) using Pyth
 
 ## Functionalities
 
-- **Send HTTP Requests:** You can send HTTP requests using different methods like GET, POST, PUT, and DELETE.
+- **Send HTTP Requests:** You can send HTTP requests using different methods like GET, POST, PUT, PATCH, DELETE.
+- **View Responses:** The application displays the status code and content of the response from the server. The response is also **formatted** for easier reading.
 - **Save and Load Requests:** Requests can be saved with custom names and loaded for future use.
-- **Duplicate or Delete Saved Requests:** You can duplicate or remove saved requests from the list.
-- **List Requests:** View a list of all saved HTTP requests. You can select a request from the list and load it back into the request fields.
-- **View Responses:** The application displays the status code and content of the response from the server.
 - **Automatic Load of Last Saved Request:** When the application starts, it automatically loads the last saved request, allowing you to continue where you left off.
+- **List Requests:** View a list of all saved requests. You can select a request from the list and load it back into the request fields.
+- **Duplicate or Delete Saved Requests:** You can duplicate saved requests from the list.
+- **Remove Request:** You can remove any saved request, deleting it permanently.
 - **Undo/Redo History:** You can undo or redo any changes made to the request fields (such as URL, headers, body).
+- **Animation on Send Button:** When you click the **Send** button, a small **dot blinks twice** and changes color to match the HTTP status code of the response (e.g., green for success, red for errors).
+- **Body Field Indentation:** The body field is designed to make indentation easier, providing a better user experience when working with JSON or other structured data.
 
 ****************************************************
 
