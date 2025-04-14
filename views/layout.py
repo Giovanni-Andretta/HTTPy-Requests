@@ -120,7 +120,7 @@ def build_layout(app):
     add_labeled_widget(frame_content, 1, "URL:", "mediumseagreen", url_entry)
 
     method_var = tk.StringVar(value="GET")
-    method_menu = ttk.Combobox(frame_content, textvariable=method_var, values=["GET", "POST", "PUT", "DELETE", "PATCH"], width=8, font=("Source Code Pro", 10))
+    method_menu = ttk.Combobox(frame_content, textvariable=method_var, values=["GET", "POST", "PUT", "PATCH", "DELETE"], width=8, font=("Source Code Pro", 10))
     method_menu.grid(row=2, column=1, padx=10, pady=5, sticky='w')
     tk.Label(frame_content, text="Method:", fg="lightsalmon", font=("Source Code Pro", 10)).grid(row=2, column=0, padx=10, pady=5, sticky='w')
 
