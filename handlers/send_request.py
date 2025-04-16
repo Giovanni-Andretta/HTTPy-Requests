@@ -51,6 +51,16 @@ def send_request(url_entry, method_var, body_text, headers_text, authorization_e
 
         status_code_label.config(text=status_code)
 
+        if (not status_code.isdigit() or not (100 <= int(status_code) <= 599)) and not content:
+            fallback = {
+                "error": {
+                    "message": "No content returned. The URL might be incorrect, or the server may be unavailable."
+                }
+            }
+            content = json.dumps(fallback, indent=4)
+
+        status_code_label.config(text=status_code)
+
         try:
             parsed = json.loads(content)
             response_text.insert("1.0", json.dumps(parsed, indent=4))
