@@ -69,21 +69,7 @@ To create a virtual environment, open your terminal (or command prompt) and run 
 python3 -m venv .venv
 ```
 
-### 2. Activate the virtual environment:
-
-macOS/Linux:
-  ```
-  source .venv/bin/activate
-  ```
-
-Windows:
-  ```
-  .venv\Scripts\activate
-  ```
-
-Once activated, your terminal prompt will change to show the name of the virtual environment (venv).
-
-### 3. Install Tkinter
+### 2. Install Tkinter
 
 macOS:
   To install Tkinter on macOS, you can use Homebrew:
@@ -95,13 +81,13 @@ macOS:
 Windows:
   Tkinter is included with Python by default on Windows, so there is no need to install it separately.
 
-### 4. Ensure cURL is installed
+### 3. Ensure cURL is installed
 
 macOS/Linux: cURL is usually pre-installed.
 
 Windows: If you get an error that cURL is not recognized, download and install cURL or ensure it’s added to your system PATH.
 
-### 5. Run the Application
+### 4. Run the Application
 
 Once the dependencies are installed and Tkinter is set up, you can run the application with:
 
@@ -109,7 +95,7 @@ Once the dependencies are installed and Tkinter is set up, you can run the appli
   python3 main.py
 ```
 
-### 6. Creating a Visual Shortcut on macOS using Automator (Optional)
+### 5. Creating a Visual Shortcut on macOS using Automator (Optional)
 
 If you want to create a visual shortcut to run the application on your Mac, you can do so using **Automator**:
 
